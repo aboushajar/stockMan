@@ -1,0 +1,64 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'transfert.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'transfert.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'transfert.dateTransfert' | translate}}</label>
+                        <p-calendar id="1" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'transfert.dateTransfert' | translate}}"  [ngModel]="item.dateTransfert" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'transfert.depotOrigin' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'transfert.depotOrigin' | translate}}" autofocus  id="2" [ngModel]="item.depotOrigin?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'transfert.depotDestination' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'transfert.depotDestination' | translate}}" autofocus  id="3" [ngModel]="item.depotDestination?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'transfert.remarque' | translate}}</label>
+                        <textarea id="4" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'transfert.remarque' | translate}}"  [ngModel]="item.remarque"></textarea>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+            <p-tabPanel header="{{'transfert.transfertItems' | translate}}">
+                <div class="grid">
+                    <div class="col">
+                        <div class="card">
+                            <p-table [value]="item.transfertItems" [scrollable]="true" scrollHeight="200px">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Sous marque</th>
+                                        <th>Quantite</th>
+                                        <th>Remarque</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-p>
+                                    <tr>
+                                        <td>{{p.sousMarque?.libelle}}</td>
+                                        <td>{{p.quantite}}</td>
+                                        <td>{{p.remarque}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

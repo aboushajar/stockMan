@@ -1,0 +1,142 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'vente.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'vente.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'vente.code' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'vente.code' | translate}}" autofocus  id="1" [ngModel]="item.code">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'vente.client' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'vente.client' | translate}}" autofocus  id="2" [ngModel]="item.client?.nom">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'vente.dateVente' | translate}}</label>
+                        <p-calendar id="3" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'vente.dateVente' | translate}}"  [ngModel]="item.dateVente" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'vente.categorieProduit' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'vente.categorieProduit' | translate}}" autofocus  id="4" [ngModel]="item.categorieProduit?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'vente.montantTotalHt' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="5" [disabled]="true" placeholder="{{'vente.montantTotalHt' | translate}}" [ngModel]="item.montantTotalHt"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'vente.tauxTva' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'vente.tauxTva' | translate}}" autofocus  id="6" [ngModel]="item.tauxTva?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{{'vente.montantTotalTva' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="7" [disabled]="true" placeholder="{{'vente.montantTotalTva' | translate}}" [ngModel]="item.montantTotalTva"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="8">{{'vente.montantTotalTtc' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="8" [disabled]="true" placeholder="{{'vente.montantTotalTtc' | translate}}" [ngModel]="item.montantTotalTtc"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="9">{{'vente.remise' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="9" [disabled]="true" placeholder="{{'vente.remise' | translate}}" [ngModel]="item.remise"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="10">{{'vente.montantTotalApresRemise' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="10" [disabled]="true" placeholder="{{'vente.montantTotalApresRemise' | translate}}" [ngModel]="item.montantTotalApresRemise"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="11">{{'vente.montantPaye' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="11" [disabled]="true" placeholder="{{'vente.montantPaye' | translate}}" [ngModel]="item.montantPaye"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="12">{{'vente.reste' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="12" [disabled]="true" placeholder="{{'vente.reste' | translate}}" [ngModel]="item.reste"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="15">{{'vente.pointVente' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'vente.pointVente' | translate}}" autofocus  id="15" [ngModel]="item.pointVente?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="16">{{'vente.etatVente' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'vente.etatVente' | translate}}" autofocus  id="16" [ngModel]="item.etatVente?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="17">{{'vente.remarque' | translate}}</label>
+                        <textarea id="17" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'vente.remarque' | translate}}"  [ngModel]="item.remarque"></textarea>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+            <p-tabPanel header="{{'vente.venteItems' | translate}}">
+                <div class="grid">
+                    <div class="col">
+                        <div class="card">
+                            <p-table [value]="item.venteItems" [scrollable]="true" scrollHeight="200px">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Stock</th>
+                                        <th>Marque</th>
+                                        <th>Sous marque</th>
+                                        <th>Quantite</th>
+                                        <th>Prix</th>
+                                        <th>Remarque</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-p>
+                                    <tr>
+                                        <td>{{p.stock?.depot?.libelle}}</td>
+                                        <td>{{p.marque?.libelle}}</td>
+                                        <td>{{p.sousMarque?.libelle}}</td>
+                                        <td>{{p.quantite}}</td>
+                                        <td>{{p.prix}}</td>
+                                        <td>{{p.remarque}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+            </p-tabPanel>
+            <p-tabPanel header="{{'vente.reglementVentes' | translate}}">
+                <div class="grid">
+                    <div class="col">
+                        <div class="card">
+                            <p-table [value]="item.reglementVentes" [scrollable]="true" scrollHeight="200px">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Date reglement</th>
+                                        <th>Mode reglement</th>
+                                        <th>Montant</th>
+                                        <th>Remarque</th>
+                                        <th>Reglement vente status</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-p>
+                                    <tr>
+                                        <td>{{p.dateReglement | date: dateFormatColumn}}</td>
+                                        <td>{{p.modeReglement?.libelle}}</td>
+                                        <td>{{p.montant}}</td>
+                                        <td>{{p.remarque}}</td>
+                                        <td>{{p.reglementVenteStatus?.libelle}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

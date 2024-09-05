@@ -1,0 +1,48 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'inventaireItem.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'inventaireItem.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'inventaireItem.sousMarque' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'inventaireItem.sousMarque' | translate}}" autofocus  id="1" [ngModel]="item.sousMarque?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'inventaireItem.quantiteAnticipe' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="2" [disabled]="true" placeholder="{{'inventaireItem.quantiteAnticipe' | translate}}" [ngModel]="item.quantiteAnticipe"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'inventaireItem.quantiteReelle' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="3" [disabled]="true" placeholder="{{'inventaireItem.quantiteReelle' | translate}}" [ngModel]="item.quantiteReelle"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'inventaireItem.decalage' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="4" [disabled]="true" placeholder="{{'inventaireItem.decalage' | translate}}" [ngModel]="item.decalage"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'inventaireItem.inventaire' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'inventaireItem.inventaire' | translate}}" autofocus  id="5" [ngModel]="item.inventaire?.id">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'inventaireItem.remarque' | translate}}</label>
+                        <textarea id="6" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'inventaireItem.remarque' | translate}}"  [ngModel]="item.remarque"></textarea>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

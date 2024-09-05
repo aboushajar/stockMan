@@ -1,0 +1,72 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'fournisseur.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'fournisseur.tabPan' | translate}}">
+                                <div class="grid">
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="1">{{'fournisseur.categorieFournisseur' | translate}}<span style="color: red;">*</span></label>
+                                                <p-dropdown  appendTo="body"  [options]="categorieFournisseurs" [(ngModel)]="item.categorieFournisseur" id="1" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'fournisseur.categorieFournisseur' | translate}}" [ngClass]="{'ng-invalid ng-dirty' : !validFournisseurCategorieFournisseur}"  >
+                                                </p-dropdown>
+                                                <small class='p-error' *ngIf='!validFournisseurCategorieFournisseur'>CategorieFournisseur is obligatory.</small>
+                                            </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'fournisseur.reference' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'fournisseur.reference' | translate}}" id="2" [(ngModel)]="item.reference"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validFournisseurReference}"  />
+                                                    <small class='p-error' *ngIf='!validFournisseurReference'>Reference is obligatory.</small>
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="3">{{'fournisseur.nom' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'fournisseur.nom' | translate}}" id="3" [(ngModel)]="item.nom"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validFournisseurNom}"  />
+                                                    <small class='p-error' *ngIf='!validFournisseurNom'>Nom is obligatory.</small>
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="4">{{'fournisseur.adresse' | translate}}</label>
+                                                    <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'fournisseur.adresse' | translate}}"  [(ngModel)]="item.adresse"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="5">{{'fournisseur.telephone' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'fournisseur.telephone' | translate}}" id="5" [(ngModel)]="item.telephone"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validFournisseurTelephone}"  />
+                                                    <small class='p-error' *ngIf='!validFournisseurTelephone'>Telephone is obligatory.</small>
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="6">{{'fournisseur.creance' | translate}}</label>
+                                                    <p-inputNumber class="mb-2 mr-2" id="6" placeholder="{{'fournisseur.creance' | translate}}" [(ngModel)]="item.creance"  >
+                                                    </p-inputNumber>
+                                                    
+                                                </div>
+
+                                </div>
+                            </p-tabPanel>
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-flexbox">
+
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
+
+
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+
+
+                </div>
+            </ng-template>
+
+    </p-dialog>

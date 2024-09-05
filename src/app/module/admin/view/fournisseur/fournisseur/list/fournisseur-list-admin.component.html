@@ -1,0 +1,172 @@
+<div class="grid"  *ngIf="listActionIsValid">
+    <div class="col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate('Fournisseur')" *ngIf="createActionIsValid"></button>
+                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
+                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="col-12">
+                    <div class="flex flex-wrap p-fluid col-12">
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="1-2">{{'fournisseur.categorieFournisseur' | translate}}</label>
+                            <p-dropdown [options]="categorieFournisseurs" [(ngModel)]="criteria.categorieFournisseur" id="1" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'fournisseur.categorieFournisseur' | translate}}" optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="2">{{'fournisseur.reference' | translate}}</label>
+                            <input  class="w-full"  pInputText id="2" type="text"  [(ngModel)]="criteria.referenceLike">
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="3">{{'fournisseur.nom' | translate}}</label>
+                            <input  class="w-full"  pInputText id="3" type="text"  [(ngModel)]="criteria.nomLike">
+                        </div>
+                       <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="5">{{'fournisseur.telephone' | translate}}</label>
+                            <input  class="w-full"  pInputText id="5" type="text"  [(ngModel)]="criteria.telephoneLike">
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="6-1">{{'fournisseur.creanceMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.creanceMin" id="6-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="6-2">{{'fournisseur.creanceMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.creanceMax" id="6-2"></p-inputNumber>
+                       </div>
+                    </div>
+                    <div [style]="{ marginTop : '1rem', display: 'flex', justifyContent: 'flex-end' }">
+                        <button pButton pRipple label="{{'validate' | translate}}" icon="pi pi-sort-amount-down" class="p-button-info mr-2" (click)="findPaginatedByCriteria()"></button>
+                    </div>
+                </div>
+
+
+            </p-toolbar>
+
+
+            <p-table #dt [value]="items" [columns]="cols" [rows]="8" [paginator]="false"
+                    [globalFilterFields]="['categorieFournisseurlibelle', 'reference', 'nom', 'telephone', 'creance']" [(selection)]="selections"
+                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                    currentPageReportTemplate="{{'les éléments de {first} à {last} sur {totalRecords} ' | translate}}"
+                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" selectionMode="multiple">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column flex-row justify-content-between table-header">
+                        <h5 class="p-m-0">{{'fournisseur.header' | translate}}</h5>
+                        <span class="p-input-icon-left ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="{{'searchInput' | translate}}" (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                                
+                        <th pSortableColumn="categorieFournisseur">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'fournisseur.categorieFournisseur' | translate}}</span>
+                                <p-sortIcon field="categorieFournisseur"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="reference">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'fournisseur.reference' | translate}}</span>
+                                <p-sortIcon field="reference"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.reference" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="nom">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'fournisseur.nom' | translate}}</span>
+                                <p-sortIcon field="nom"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.nom" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="telephone">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'fournisseur.telephone' | translate}}</span>
+                                <p-sortIcon field="telephone"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.telephone" display="menu" class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="creance">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'fournisseur.creance' | translate}}</span>
+                                <p-sortIcon field="creance"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-element>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="element"></p-tableCheckbox>
+                        </td>
+                            
+                        <td>{{element.categorieFournisseur?.libelle}}</td>
+                            
+                            
+                        <td>{{element.reference}}</td>
+                            
+                            
+                        <td>{{element.nom}}</td>
+                            
+                            
+                        <td>{{element.telephone}}</td>
+                            
+                            
+                        <td>{{element.creance}}</td>
+                            
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2" (click)="view(element)"  *ngIf="viewActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="summary">
+                    <p-paginator  [rows]="10" [totalRecords]="totalRecords" (onPageChange)="onPage($event)"></p-paginator>
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale il {{items ? totalRecords == 1 ? 'y a' : 'y a' : 'y a' }} {{items ? totalRecords : 0 }} {{items ? totalRecords == 1 ? 'fournisseur' : 'fournisseurs' : 0 }}.
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-fournisseur-create-admin  *ngIf="createDialog  && createActionIsValid"></app-fournisseur-create-admin>
+        <app-fournisseur-edit-admin  *ngIf="editDialog  && editActionIsValid"></app-fournisseur-edit-admin>
+        <app-fournisseur-view-admin  *ngIf="viewDialog  && viewActionIsValid"></app-fournisseur-view-admin>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>
+
+<p-card header="Permission not allowed" *ngIf="!listActionIsValid">
+    <p class="m-0">
+        You don't have permission to access !
+    </p>
+</p-card>

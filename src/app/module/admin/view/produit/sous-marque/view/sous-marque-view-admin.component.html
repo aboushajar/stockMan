@@ -1,0 +1,52 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'sousMarque.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'sousMarque.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'sousMarque.libelle' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'sousMarque.libelle' | translate}}" autofocus  id="1" [ngModel]="item.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'sousMarque.code' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'sousMarque.code' | translate}}" autofocus  id="2" [ngModel]="item.code">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'sousMarque.marque' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'sousMarque.marque' | translate}}" autofocus  id="3" [ngModel]="item.marque?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'sousMarque.statutSousMarque' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'sousMarque.statutSousMarque' | translate}}" autofocus  id="4" [ngModel]="item.statutSousMarque?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'sousMarque.prixVente' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="5" [disabled]="true" placeholder="{{'sousMarque.prixVente' | translate}}" [ngModel]="item.prixVente"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'sousMarque.prixAchat' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="6" [disabled]="true" placeholder="{{'sousMarque.prixAchat' | translate}}" [ngModel]="item.prixAchat"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{{'sousMarque.remarque' | translate}}</label>
+                        <textarea id="7" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'sousMarque.remarque' | translate}}"  [ngModel]="item.remarque"></textarea>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

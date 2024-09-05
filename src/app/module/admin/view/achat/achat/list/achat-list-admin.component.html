@@ -1,0 +1,399 @@
+<div class="grid" *ngIf="listActionIsValid">
+    <div class="col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                    <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus"
+                            class="p-button-info mr-2 mb-2" (click)="openCreate('Achat')"
+                            *ngIf="createActionIsValid"></button>
+                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}"
+                            icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()
+                            *ngIf="deleteActionIsValid"></button>
+                    <button pButton pRipple label=" {{'search' | translate}}"
+                            icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}"
+                            class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download"
+                                       styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="col-12">
+                    <div class="flex flex-wrap p-fluid col-12">
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="1">{{'achat.code' | translate}}</label>
+                            <input class="w-full" pInputText id="1" type="text" [(ngModel)]="criteria.codeLike">
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="2-2">{{'achat.fournisseur' | translate}}</label>
+                            <p-dropdown [options]="fournisseurs" [(ngModel)]="criteria.fournisseur" id="2" [filter]="true"
+                                        class="p-fluid"
+                                        [showClear]="true" placeholder="{{'achat.fournisseur' | translate}}"
+                                        optionLabel="nom">
+                            </p-dropdown>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="3-1">{{'achat.dateAchatMin' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.dateAchatFrom"
+                                        id="3-1" dateFormat="dd-MM-yy" [showIcon]="true" class="p-fluid"></p-calendar>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="3-2">{{'achat.dateAchatMax' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.dateAchatTo"
+                                        id="3-2" dateFormat="dd-MM-yy" [showIcon]="true" class="p-fluid"></p-calendar>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2"
+                                   for="4-2">{{'achat.categorieProduit' | translate}}</label>
+                            <p-dropdown [options]="categorieProduits" [(ngModel)]="criteria.categorieProduit" id="4"
+                                        [filter]="true" class="p-fluid"
+                                        [showClear]="true" placeholder="{{'achat.categorieProduit' | translate}}"
+                                        optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2"
+                                   for="5-1">{{'achat.montantHtMin' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.montantHtMin"
+                                           id="5-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2"
+                                   for="5-2">{{'achat.montantHtMax' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.montantHtMax"
+                                           id="5-2"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="6-2">{{'achat.tauxTva' | translate}}</label>
+                            <p-dropdown [options]="tauxTvas" [(ngModel)]="criteria.tauxTva" id="6" [filter]="true"
+                                        class="p-fluid"
+                                        [showClear]="true" placeholder="{{'achat.tauxTva' | translate}}"
+                                        optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2"
+                                   for="7-1">{{'achat.montantTvaMin' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.montantTvaMin"
+                                           id="7-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2"
+                                   for="7-2">{{'achat.montantTvaMax' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.montantTvaMax"
+                                           id="7-2"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2"
+                                   for="8-1">{{'achat.montantTtcMin' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.montantTtcMin"
+                                           id="8-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2"
+                                   for="8-2">{{'achat.montantTtcMax' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.montantTtcMax"
+                                           id="8-2"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="9-1">{{'achat.remiseMin' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.remiseMin" id="9-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="9-2">{{'achat.remiseMax' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.remiseMax" id="9-2"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2"
+                                   for="10-1">{{'achat.montantApresRemiseMin' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.montantTtcApresRemiseMin"
+                                           id="10-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2"
+                                   for="10-2">{{'achat.montantApresRemiseMax' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.montantTtcApresRemiseMax"
+                                           id="10-2"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2"
+                                   for="11-1">{{'achat.montantPayeMin' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.montantPayeMin"
+                                           id="11-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2"
+                                   for="11-2">{{'achat.montantPayeMax' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.montantPayeMax"
+                                           id="11-2"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="12-1">{{'achat.resteMin' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.resteMin" id="12-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="12-2">{{'achat.resteMax' | translate}}</label>
+                            <p-inputNumber mode="decimal" [(ngModel)]="criteria.resteMax" id="12-2"></p-inputNumber>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="16-2">{{'achat.etatAchat' | translate}}</label>
+                            <p-dropdown [options]="etatAchats" [(ngModel)]="criteria.etatAchat" id="16" [filter]="true"
+                                        class="p-fluid"
+                                        [showClear]="true" placeholder="{{'achat.etatAchat' | translate}}"
+                                        optionLabel="libelle">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <div [style]="{ marginTop : '1rem', display: 'flex', justifyContent: 'flex-end' }">
+                        <button pButton pRipple label="{{'validate' | translate}}" icon="pi pi-sort-amount-down"
+                                class="p-button-info mr-2" (click)="findPaginatedByCriteria()"></button>
+                    </div>
+                </div>
+
+
+            </p-toolbar>
+
+
+            <p-table #dt [value]="items" [columns]="cols" [rows]="8" [paginator]="false"
+                     [globalFilterFields]="['code', 'fournisseurnom', 'dateAchat', 'categorieProduitlibelle', 'montantHt', 'tauxTvalibelle', 'montantTva', 'montantTtc', 'remise', 'montantApresRemise', 'montantPaye', 'reste', 'pointVentelibelle', 'etatAchatlibelle']"
+                     [(selection)]="selections"
+                     [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                     currentPageReportTemplate="{{'les éléments de {first} à {last} sur {totalRecords} ' | translate}}"
+                     [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" selectionMode="multiple">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column flex-row justify-content-between table-header">
+                        <h5 class="p-m-0">{{'achat.header' | translate}}</h5>
+                        <span class="p-input-icon-left ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="{{'searchInput' | translate}}"
+                                   (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+
+                        <th pSortableColumn="code">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.code' | translate}}</span>
+                                <p-sortIcon field="code"></p-sortIcon>
+                                <p-columnFilter type="text" field="element.code" display="menu"
+                                                class="ml-auto"></p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="pointVente">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.pointVente' | translate}}</span>
+                                <p-sortIcon field="pointVente"></p-sortIcon>
+                            </div>
+                        </th>
+
+
+                        <th pSortableColumn="fournisseur">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.fournisseur' | translate}}</span>
+                                <p-sortIcon field="fournisseur"></p-sortIcon>
+                            </div>
+                        </th>
+
+
+                        <th pSortableColumn="dateAchat">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.dateAchat' | translate}}</span>
+                                <p-sortIcon field="dateAchat"></p-sortIcon>
+                            </div>
+                        </th>
+
+
+                        <th pSortableColumn="categorieProduit">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.categorieProduit' | translate}}</span>
+                                <p-sortIcon field="categorieProduit"></p-sortIcon>
+                            </div>
+                        </th>
+
+
+                        <th pSortableColumn="montantHt">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.montantHt' | translate}}</span>
+                                <p-sortIcon field="montantHt"></p-sortIcon>
+                            </div>
+                        </th>
+
+                        <!--
+                                                <th pSortableColumn="tauxTva">
+                                                    <div class="p-d-flex p-jc-between p-ai-center">
+                                                        <span>{{'achat.tauxTva' | translate}}</span>
+                                                        <p-sortIcon field="tauxTva"></p-sortIcon>
+                                                    </div>
+                                                </th
+
+
+                        <th pSortableColumn="montantTva">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.montantTva' | translate}}</span>
+                                <p-sortIcon field="montantTva"></p-sortIcon>
+                            </div>
+                        </th>
+                        -->
+
+                        <th pSortableColumn="montantTtc">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.montantTtc' | translate}}</span>
+                                <p-sortIcon field="montantTtc"></p-sortIcon>
+                            </div>
+                        </th>
+                        <th pSortableColumn="montantPaye">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'achat.montantPaye' | translate}}</span>
+                                <p-sortIcon field="montantPaye"></p-sortIcon>
+                            </div>
+                        </th>
+
+
+                        <!--  <th pSortableColumn="remise">
+                              <div class="p-d-flex p-jc-between p-ai-center">
+                                  <span>{{'achat.remise' | translate}}</span>
+                                  <p-sortIcon field="remise"></p-sortIcon>
+                              </div>
+                          </th>
+  -->
+                        <!--
+                <th pSortableColumn="montantApresRemise">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        <span>{{'achat.montantApresRemise' | translate}}</span>
+                        <p-sortIcon field="montantApresRemise"></p-sortIcon>
+                    </div>
+                </th>
+                        -->
+                        <!--
+
+                        -->
+                        <!--
+                <th pSortableColumn="reste">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        <span>{{'achat.reste' | translate}}</span>
+                        <p-sortIcon field="reste"></p-sortIcon>
+                    </div>
+                </th>
+                        -->
+
+                        <!--
+                <th pSortableColumn="etatAchat">
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        <span>{{'achat.etatAchat' | translate}}</span>
+                        <p-sortIcon field="etatAchat"></p-sortIcon>
+                    </div>
+                </th>
+                        -->
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-element>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="element"></p-tableCheckbox>
+                        </td>
+
+                        <td>{{element.code}}</td>
+                        <td>
+                            <p-tag severity="{{element.pointVente?.style}}" value="{{element.pointVente?.libelle}}"
+                                   [rounded]="true"/>
+                        </td>
+
+                        <td>{{element.fournisseur?.nom}}</td>
+
+
+                        <td>{{element.dateAchat | date :'dd/MM/yyyy HH:mm' }}</td>
+
+
+                        <td>
+                            <p-tag severity="{{element.categorieProduit?.style}}"
+                                   value="{{element.categorieProduit?.libelle}}" [rounded]="true"/>
+                        </td>
+
+
+                        <td>{{element.montantHt}}</td>
+
+
+                        <!--      <td>
+                                  {{element.montantTva}}
+                                  <p-tag severity="{{element.tauxTva?.code}}" value="{{element.tauxTva?.libelle}}"
+                                         [rounded]="true"/>
+                              </td>-->
+
+
+                        <td *ngIf="element.remise != 0">{{element.montantTtcApresRemise}} ({{element.montantTtc}}
+                            - {{element.remise}})
+                        </td>
+                        <td *ngIf="element.remise == 0">{{element.montantTtcApresRemise}}</td>
+
+                        <td>{{element.montantPaye}} (Rest: {{element.reste}})</td>
+
+
+                        <!--
+                   <td>{{element.montantApresRemise}}</td>
+                        -->
+
+                        <!--
+                   <td>{{element.reste}}</td>
+                        -->
+                        <!--
+
+                        -->
+                        <!--
+                   <td>
+                       <p-tag severity="{{element.etatAchat?.code}}" value="{{element.etatAchat?.libelle}}" [rounded]="true" />
+                   </td>
+                        -->
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-info mr-2"
+                                    (click)="edit(element)" *ngIf="editActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2"
+                                    (click)="view(element)" *ngIf="viewActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2"
+                                    (click)="delete(element)" *ngIf="deleteActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-copy"
+                                    class="p-button-rounded p-button-raised p-button-warning mr-2"
+                                    (click)="duplicate(element)" *ngIf="duplicateActionIsValid"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="summary">
+                    <p-paginator [rows]="10" [totalRecords]="totalRecords"
+                                 (onPageChange)="onPage($event)"></p-paginator>
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale
+                        il {{items ? totalRecords == 1 ? 'y a' : 'y a' : 'y a' }} {{items ? totalRecords : 0 }} {{items ? totalRecords == 1 ? 'achat' : 'achats' : 0 }}
+                        .
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-achat-create-admin *ngIf="createDialog  && createActionIsValid"></app-achat-create-admin>
+        <app-achat-edit-admin *ngIf="editDialog  && editActionIsValid"></app-achat-edit-admin>
+        <app-achat-view-admin *ngIf="viewDialog  && viewActionIsValid"></app-achat-view-admin>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>
+
+<p-card header="Permission not allowed" *ngIf="!listActionIsValid">
+    <p class="m-0">
+        You don't have permission to access !
+    </p>
+</p-card>

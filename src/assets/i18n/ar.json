@@ -1,0 +1,676 @@
+{
+    "from-to": "العناصر من {first} إلى {last} (الإجمالي {totalRecords})",
+    "new": "جديد",
+    "search": "بحث",
+    "export": "تصدير",
+    "validate": "التحقق",
+    "search": "البحث...",
+    "delete": "حذف",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "next": "التالي",
+    "yes": "نعم",
+    "no": "لا",
+    "actions": "الإجراءات",
+    "confirm": "تأكيد",
+    "creation": "إنشاء",
+    "list": "قائمة",
+
+    "actionPermission": {
+        "reference": "المرجع",
+        "libelle": "التسمية",
+        "actionPermission": "إذن الإجراء",
+        "tabPan": "إذن الإجراء",
+        "header": "قائمة أذونات الإجراءات",
+        "deleteActionPermissionConfirmationMessage": "هل أنت متأكد أنك تريد حذف إذن الإجراء؟",
+        "deleteActionPermissionsConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "modelPermissionUser": {
+        "actionPermission": "إذن الإجراء",
+        "actionPermissionPlaceHolder": "اختر إذن الإجراء",
+        "actionPermissionPlaceHolderFilter": "البحث حسب إذن الإجراء",
+        "modelPermission": "إذن النموذج",
+        "modelPermissionPlaceHolder": "اختر إذن النموذج",
+        "modelPermissionPlaceHolderFilter": "البحث حسب إذن النموذج",
+        "value": "القيمة",
+        "user": "المستخدم",
+        "userPlaceHolder": "اختر مستخدمًا",
+        "userPlaceHolderFilter": "البحث حسب المستخدم",
+        "subAttribute": "السمة الفرعية",
+        "modelPermissionUser": "إذن مستخدم النموذج",
+        "tabPan": "إذن مستخدم النموذج",
+        "header": "قائمة مستخدمي إذن النموذج",
+        "deleteModelPermissionUserConfirmationMessage": "هل أنت متأكد أنك تريد حذف مستخدم إذن النموذج؟",
+        "deleteModelPermissionUsersConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "role": {
+        "authority": "السلطة",
+        "role": "الدور",
+        "tabPan": "الدور",
+        "header": "قائمة الأدوار",
+        "deleteRoleConfirmationMessage": "هل أنت متأكد أنك تريد حذف الدور؟",
+        "deleteRolesConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "roleUser": {
+        "role": "الدور",
+        "rolePlaceHolder": "اختر دورًا",
+        "rolePlaceHolderFilter": "البحث حسب الدور",
+        "user": "المستخدم",
+        "userPlaceHolder": "اختر مستخدمًا",
+        "userPlaceHolderFilter": "البحث حسب المستخدم",
+        "roleUser": "دور المستخدم",
+        "tabPan": "دور المستخدم",
+        "header": "قائمة مستخدمي الدور",
+        "deleteRoleUserConfirmationMessage": "هل أنت متأكد أنك تريد حذف مستخدم الدور؟",
+        "deleteRoleUsersConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "user": {
+        "credentialsNonExpired": "صلاحية الاعتماد غير منتهية",
+        "enabled": "مفعل",
+        "email": "البريد الإلكتروني",
+        "accountNonExpired": "الحساب غير منتهي",
+        "accountNonLocked": "الحساب غير مقفل",
+        "username": "اسم المستخدم",
+        "password": "كلمة المرور",
+        "passwordChanged": "تم تغيير كلمة المرور",
+        "modelPermissionUsers": "مستخدمو إذن النموذج",
+        "roleUsers": "مستخدمو الدور",
+        "RoleUsersPlaceHolder": "حدد عدة أدوار",
+        "user": "المستخدم",
+        "tabPan": "المستخدم",
+        "header": "قائمة المستخدمين",
+        "deleteUserConfirmationMessage": "هل أنت متأكد أنك تريد حذف المستخدم؟",
+        "deleteUsersConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+	"modelPermission": {
+		"reference": "المرجع",
+		"libelle": "التسمية",
+		"modelPermission": "إذن النموذج",
+		"tabPan": "إذن النموذج",
+		"header": "قائمة أذونات النماذج",
+		"deleteModelPermissionConfirmationMessage": "هل أنت متأكد أنك تريد حذف إذن النموذج؟",
+		"deleteModelPermissionsConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+	},
+
+
+
+    "transfertItem":{
+        "sousMarque": "Sous marque",
+        "sousMarquePlaceHolder": "Select a Sous marque",
+        "sousMarquePlaceHolderFilter": "Search by Sous marque",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "remarque": "Remarque",
+        "transfert": "Transfert",
+        "transfertPlaceHolder": "Select a Transfert",
+        "transfertPlaceHolderFilter": "Search by Transfert",
+        "transfertItem": "Transfert item",
+        "tabPan": "Transfert item",
+        "header": "Liste des transfert items",
+        "deleteTransfertItemConfirmationMessage": "Are you sure you want to delete transfert item",
+        "deleteTransfertItemsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "inventaireItem":{
+        "sousMarque": "Sous marque",
+        "sousMarquePlaceHolder": "Select a Sous marque",
+        "sousMarquePlaceHolderFilter": "Search by Sous marque",
+        "quantiteAnticipe": "Quantite anticipe",
+        "quantiteAnticipeMin": "Quantite anticipe Min",
+        "quantiteAnticipeMax": "Quantite anticipe Max",
+        "quantiteReelle": "Quantite reelle",
+        "quantiteReelleMin": "Quantite reelle Min",
+        "quantiteReelleMax": "Quantite reelle Max",
+        "decalage": "Decalage",
+        "decalageMin": "Decalage Min",
+        "decalageMax": "Decalage Max",
+        "inventaire": "Inventaire",
+        "inventairePlaceHolder": "Select a Inventaire",
+        "inventairePlaceHolderFilter": "Search by Inventaire",
+        "remarque": "Remarque",
+        "inventaireItem": "Inventaire item",
+        "tabPan": "Inventaire item",
+        "header": "Liste des inventaire items",
+        "deleteInventaireItemConfirmationMessage": "Are you sure you want to delete inventaire item",
+        "deleteInventaireItemsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "superCategorieClient":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "style": "Style",
+        "superCategorieClient": "Super categorie client",
+        "tabPan": "Super categorie client",
+        "header": "Liste des super categorie clients",
+        "deleteSuperCategorieClientConfirmationMessage": "Are you sure you want to delete super categorie client",
+        "deleteSuperCategorieClientsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "uniteMesure":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "style": "Style",
+        "uniteMesure": "Unite mesure",
+        "tabPan": "Unite mesure",
+        "header": "Liste des unite mesures",
+        "deleteUniteMesureConfirmationMessage": "Are you sure you want to delete unite mesure",
+        "deleteUniteMesuresConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "transfert":{
+        "dateTransfert": "Date transfert",
+        "dateTransfertMin": "Date transfert Min",
+        "dateTransfertMax": "Date transfert Max",
+        "depotOrigin": "Depot origin",
+        "depotOriginPlaceHolder": "Select a Depot origin",
+        "depotOriginPlaceHolderFilter": "Search by Depot origin",
+        "depotDestination": "Depot destination",
+        "depotDestinationPlaceHolder": "Select a Depot destination",
+        "depotDestinationPlaceHolderFilter": "Search by Depot destination",
+        "remarque": "Remarque",
+        "transfertItems": "Transfert items",
+        "transfert": "Transfert",
+        "tabPan": "Transfert",
+        "header": "Liste des transferts",
+        "deleteTransfertConfirmationMessage": "Are you sure you want to delete transfert",
+        "deleteTransfertsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "categorieFournisseur":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "categorieFournisseur": "Categorie fournisseur",
+        "tabPan": "Categorie fournisseur",
+        "header": "Liste des categorie fournisseurs",
+        "deleteCategorieFournisseurConfirmationMessage": "Are you sure you want to delete categorie fournisseur",
+        "deleteCategorieFournisseursConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "reglementVente":{
+        "dateReglement": "Date reglement",
+        "dateReglementMin": "Date reglement Min",
+        "dateReglementMax": "Date reglement Max",
+        "modeReglement": "Mode reglement",
+        "modeReglementPlaceHolder": "Select a Mode reglement",
+        "modeReglementPlaceHolderFilter": "Search by Mode reglement",
+        "montant": "Montant",
+        "montantMin": "Montant Min",
+        "montantMax": "Montant Max",
+        "remarque": "Remarque",
+        "vente": "Vente",
+        "ventePlaceHolder": "Select a Vente",
+        "ventePlaceHolderFilter": "Search by Vente",
+        "reglementVenteStatus": "Reglement vente status",
+        "reglementVenteStatusPlaceHolder": "Select a Reglement vente status",
+        "reglementVenteStatusPlaceHolderFilter": "Search by Reglement vente status",
+        "reglementVente": "Reglement vente",
+        "tabPan": "Reglement vente",
+        "header": "Liste des reglement ventes",
+        "deleteReglementVenteConfirmationMessage": "Are you sure you want to delete reglement vente",
+        "deleteReglementVentesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "fournisseur":{
+        "categorieFournisseur": "Categorie fournisseur",
+        "categorieFournisseurPlaceHolder": "Select a Categorie fournisseur",
+        "categorieFournisseurPlaceHolderFilter": "Search by Categorie fournisseur",
+        "reference": "Reference",
+        "nom": "Nom",
+        "adresse": "Adresse",
+        "telephone": "Telephone",
+        "creance": "Creance",
+        "creanceMin": "Creance Min",
+        "creanceMax": "Creance Max",
+        "fournisseur": "Fournisseur",
+        "tabPan": "Fournisseur",
+        "header": "Liste des fournisseurs",
+        "deleteFournisseurConfirmationMessage": "Are you sure you want to delete fournisseur",
+        "deleteFournisseursConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "depot":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "style": "Style",
+        "adresse": "Adresse",
+        "pointVente": "Point vente",
+        "pointVentePlaceHolder": "Select a Point vente",
+        "pointVentePlaceHolderFilter": "Search by Point vente",
+        "depot": "Depot",
+        "tabPan": "Depot",
+        "header": "Liste des depots",
+        "deleteDepotConfirmationMessage": "Are you sure you want to delete depot",
+        "deleteDepotsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "marque":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "categorieProduit": "Categorie produit",
+        "categorieProduitPlaceHolder": "Select a Categorie produit",
+        "categorieProduitPlaceHolderFilter": "Search by Categorie produit",
+        "marque": "Marque",
+        "tabPan": "Marque",
+        "header": "Liste des marques",
+        "deleteMarqueConfirmationMessage": "Are you sure you want to delete marque",
+        "deleteMarquesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "tauxTva":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "style": "Style",
+        "valeur": "Valeur",
+        "valeurMin": "Valeur Min",
+        "valeurMax": "Valeur Max",
+        "tauxTva": "Taux tva",
+        "tabPan": "Taux tva",
+        "header": "Liste des taux tvas",
+        "deleteTauxTvaConfirmationMessage": "Are you sure you want to delete taux tva",
+        "deleteTauxTvasConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "stock":{
+        "description": "Description",
+        "sousMarque": "Sous marque",
+        "sousMarquePlaceHolder": "Select a Sous marque",
+        "sousMarquePlaceHolderFilter": "Search by Sous marque",
+        "quantiteEligibleVente": "Quantite eligible vente",
+        "quantiteEligibleVenteMin": "Quantite eligible vente Min",
+        "quantiteEligibleVenteMax": "Quantite eligible vente Max",
+        "quantiteNonEligibleVente": "Quantite non eligible vente",
+        "quantiteNonEligibleVenteMin": "Quantite non eligible vente Min",
+        "quantiteNonEligibleVenteMax": "Quantite non eligible vente Max",
+        "depot": "Depot",
+        "depotPlaceHolder": "Select a Depot",
+        "depotPlaceHolderFilter": "Search by Depot",
+        "stock": "Stock",
+        "tabPan": "Stock",
+        "header": "Liste des stocks",
+        "deleteStockConfirmationMessage": "Are you sure you want to delete stock",
+        "deleteStocksConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "modeReglement":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "style": "Style",
+        "modeReglement": "Mode reglement",
+        "tabPan": "Mode reglement",
+        "header": "Liste des mode reglements",
+        "deleteModeReglementConfirmationMessage": "Are you sure you want to delete mode reglement",
+        "deleteModeReglementsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "reglementAchat":{
+        "dateReglement": "Date reglement",
+        "dateReglementMin": "Date reglement Min",
+        "dateReglementMax": "Date reglement Max",
+        "modeReglement": "Mode reglement",
+        "modeReglementPlaceHolder": "Select a Mode reglement",
+        "modeReglementPlaceHolderFilter": "Search by Mode reglement",
+        "montant": "Montant",
+        "montantMin": "Montant Min",
+        "montantMax": "Montant Max",
+        "achat": "Achat",
+        "achatPlaceHolder": "Select a Achat",
+        "achatPlaceHolderFilter": "Search by Achat",
+        "remarque": "Remarque",
+        "reglementAchatStatus": "Reglement achat status",
+        "reglementAchatStatusPlaceHolder": "Select a Reglement achat status",
+        "reglementAchatStatusPlaceHolderFilter": "Search by Reglement achat status",
+        "reglementAchat": "Reglement achat",
+        "tabPan": "Reglement achat",
+        "header": "Liste des reglement achats",
+        "deleteReglementAchatConfirmationMessage": "Are you sure you want to delete reglement achat",
+        "deleteReglementAchatsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "categorieProduit":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "style": "Style",
+        "tauxTva": "Taux tva",
+        "tauxTvaPlaceHolder": "Select a Taux tva",
+        "tauxTvaPlaceHolderFilter": "Search by Taux tva",
+        "categorieProduit": "Categorie produit",
+        "tabPan": "Categorie produit",
+        "header": "Liste des categorie produits",
+        "deleteCategorieProduitConfirmationMessage": "Are you sure you want to delete categorie produit",
+        "deleteCategorieProduitsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "etatAchat":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "style": "Style",
+        "etatAchat": "Etat achat",
+        "tabPan": "Etat achat",
+        "header": "Liste des etat achats",
+        "deleteEtatAchatConfirmationMessage": "Are you sure you want to delete etat achat",
+        "deleteEtatAchatsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "client":{
+        "categorieClient": "Categorie client",
+        "categorieClientPlaceHolder": "Select a Categorie client",
+        "categorieClientPlaceHolderFilter": "Search by Categorie client",
+        "reference": "Reference",
+        "nom": "Nom",
+        "adresse": "Adresse",
+        "telephone": "Telephone",
+        "creance": "Creance",
+        "creanceMin": "Creance Min",
+        "creanceMax": "Creance Max",
+        "client": "Client",
+        "tabPan": "Client",
+        "header": "Liste des clients",
+        "deleteClientConfirmationMessage": "Are you sure you want to delete client",
+        "deleteClientsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "statutSousMarque":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "statutSousMarque": "Statut sous marque",
+        "tabPan": "Statut sous marque",
+        "header": "Liste des statut sous marques",
+        "deleteStatutSousMarqueConfirmationMessage": "Are you sure you want to delete statut sous marque",
+        "deleteStatutSousMarquesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "inventaire":{
+        "dateInventaite": "Date inventaite",
+        "dateInventaiteMin": "Date inventaite Min",
+        "dateInventaiteMax": "Date inventaite Max",
+        "depot": "Depot",
+        "depotPlaceHolder": "Select a Depot",
+        "depotPlaceHolderFilter": "Search by Depot",
+        "inventaireItems": "Inventaire items",
+        "remarque": "Remarque",
+        "inventaire": "Inventaire",
+        "tabPan": "Inventaire",
+        "header": "Liste des inventaires",
+        "deleteInventaireConfirmationMessage": "Are you sure you want to delete inventaire",
+        "deleteInventairesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "reglementAchatStatus":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "style": "Style",
+        "reglementAchatStatus": "Reglement achat status",
+        "tabPan": "Reglement achat status",
+        "header": "Liste des reglement achat status",
+        "deleteReglementAchatStatusConfirmationMessage": "Are you sure you want to delete reglement achat status",
+        "deleteReglementAchatStatussConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "achat":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "fournisseur": "Fournisseur",
+        "fournisseurPlaceHolder": "Select a Fournisseur",
+        "fournisseurPlaceHolderFilter": "Search by Fournisseur",
+        "entreeStock": "Entree stock",
+        "dateAchat": "Date achat",
+        "dateAchatMin": "Date achat Min",
+        "dateAchatMax": "Date achat Max",
+        "categorieProduit": "Categorie produit",
+        "categorieProduitPlaceHolder": "Select a Categorie produit",
+        "categorieProduitPlaceHolderFilter": "Search by Categorie produit",
+        "montantHt": "Montant ht",
+        "montantHtMin": "Montant ht Min",
+        "montantHtMax": "Montant ht Max",
+        "tauxTva": "Taux tva",
+        "tauxTvaPlaceHolder": "Select a Taux tva",
+        "tauxTvaPlaceHolderFilter": "Search by Taux tva",
+        "montantTva": "Montant tva",
+        "montantTvaMin": "Montant tva Min",
+        "montantTvaMax": "Montant tva Max",
+        "montantTtc": "Montant ttc",
+        "montantTtcMin": "Montant ttc Min",
+        "montantTtcMax": "Montant ttc Max",
+        "remise": "Remise",
+        "remiseMin": "Remise Min",
+        "remiseMax": "Remise Max",
+        "montantTtcApresRemise": "Montant ttc apres remise",
+        "montantTtcApresRemiseMin": "Montant ttc apres remise Min",
+        "montantTtcApresRemiseMax": "Montant ttc apres remise Max",
+        "remarque": "Remarque",
+        "montantPaye": "Montant paye",
+        "montantPayeMin": "Montant paye Min",
+        "montantPayeMax": "Montant paye Max",
+        "reste": "Reste",
+        "resteMin": "Reste Min",
+        "resteMax": "Reste Max",
+        "reglementAchats": "Reglement achats",
+        "achatItems": "Achat items",
+        "pointVente": "Point vente",
+        "pointVentePlaceHolder": "Select a Point vente",
+        "pointVentePlaceHolderFilter": "Search by Point vente",
+        "etatAchat": "Etat achat",
+        "etatAchatPlaceHolder": "Select a Etat achat",
+        "etatAchatPlaceHolderFilter": "Search by Etat achat",
+        "achat": "Achat",
+        "tabPan": "Achat",
+        "header": "Liste des achats",
+        "deleteAchatConfirmationMessage": "Are you sure you want to delete achat",
+        "deleteAchatsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "etatVente":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "style": "Style",
+        "etatVente": "Etat vente",
+        "tabPan": "Etat vente",
+        "header": "Liste des etat ventes",
+        "deleteEtatVenteConfirmationMessage": "Are you sure you want to delete etat vente",
+        "deleteEtatVentesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "categorieClient":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "superCategorieClient": "Super categorie client",
+        "superCategorieClientPlaceHolder": "Select a Super categorie client",
+        "superCategorieClientPlaceHolderFilter": "Search by Super categorie client",
+        "categorieClient": "Categorie client",
+        "tabPan": "Categorie client",
+        "header": "Liste des categorie clients",
+        "deleteCategorieClientConfirmationMessage": "Are you sure you want to delete categorie client",
+        "deleteCategorieClientsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "vente":{
+        "code": "Code",
+        "client": "Client",
+        "clientPlaceHolder": "Select a Client",
+        "clientPlaceHolderFilter": "Search by Client",
+        "dateVente": "Date vente",
+        "dateVenteMin": "Date vente Min",
+        "dateVenteMax": "Date vente Max",
+        "categorieProduit": "Categorie produit",
+        "categorieProduitPlaceHolder": "Select a Categorie produit",
+        "categorieProduitPlaceHolderFilter": "Search by Categorie produit",
+        "montantTotalHt": "Montant total ht",
+        "montantTotalHtMin": "Montant total ht Min",
+        "montantTotalHtMax": "Montant total ht Max",
+        "tauxTva": "Taux tva",
+        "tauxTvaPlaceHolder": "Select a Taux tva",
+        "tauxTvaPlaceHolderFilter": "Search by Taux tva",
+        "montantTotalTva": "Montant total tva",
+        "montantTotalTvaMin": "Montant total tva Min",
+        "montantTotalTvaMax": "Montant total tva Max",
+        "montantTotalTtc": "Montant total ttc",
+        "montantTotalTtcMin": "Montant total ttc Min",
+        "montantTotalTtcMax": "Montant total ttc Max",
+        "remise": "Remise",
+        "remiseMin": "Remise Min",
+        "remiseMax": "Remise Max",
+        "montantTotalApresRemise": "Montant total apres remise",
+        "montantTotalApresRemiseMin": "Montant total apres remise Min",
+        "montantTotalApresRemiseMax": "Montant total apres remise Max",
+        "montantPaye": "Montant paye",
+        "montantPayeMin": "Montant paye Min",
+        "montantPayeMax": "Montant paye Max",
+        "reste": "Reste",
+        "resteMin": "Reste Min",
+        "resteMax": "Reste Max",
+        "venteItems": "Vente items",
+        "reglementVentes": "Reglement ventes",
+        "pointVente": "Point vente",
+        "pointVentePlaceHolder": "Select a Point vente",
+        "pointVentePlaceHolderFilter": "Search by Point vente",
+        "etatVente": "Etat vente",
+        "etatVentePlaceHolder": "Select a Etat vente",
+        "etatVentePlaceHolderFilter": "Search by Etat vente",
+        "remarque": "Remarque",
+        "vente": "Vente",
+        "tabPan": "Vente",
+        "header": "Liste des ventes",
+        "deleteVenteConfirmationMessage": "Are you sure you want to delete vente",
+        "deleteVentesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "reglementVenteStatus":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "style": "Style",
+        "reglementVenteStatus": "Reglement vente status",
+        "tabPan": "Reglement vente status",
+        "header": "Liste des reglement vente status",
+        "deleteReglementVenteStatusConfirmationMessage": "Are you sure you want to delete reglement vente status",
+        "deleteReglementVenteStatussConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "achatItem":{
+        "code": "Code",
+        "sousMarque": "Sous marque",
+        "sousMarquePlaceHolder": "Select a Sous marque",
+        "sousMarquePlaceHolderFilter": "Search by Sous marque",
+        "marque": "Marque",
+        "marquePlaceHolder": "Select a Marque",
+        "marquePlaceHolderFilter": "Search by Marque",
+        "stock": "Stock",
+        "stockPlaceHolder": "Select a Stock",
+        "stockPlaceHolderFilter": "Search by Stock",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "prix": "Prix",
+        "prixMin": "Prix Min",
+        "prixMax": "Prix Max",
+        "remarque": "Remarque",
+        "achat": "Achat",
+        "achatPlaceHolder": "Select a Achat",
+        "achatPlaceHolderFilter": "Search by Achat",
+        "achatItem": "Achat item",
+        "tabPan": "Achat item",
+        "header": "Liste des achat items",
+        "deleteAchatItemConfirmationMessage": "Are you sure you want to delete achat item",
+        "deleteAchatItemsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "pointVente":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "style": "Style",
+        "partage": "Partage",
+        "depots": "Depots",
+        "pointVente": "Point vente",
+        "tabPan": "Point vente",
+        "header": "Liste des point ventes",
+        "deletePointVenteConfirmationMessage": "Are you sure you want to delete point vente",
+        "deletePointVentesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "sousMarque":{
+        "libelle": "Libelle",
+        "code": "Code",
+        "marque": "Marque",
+        "marquePlaceHolder": "Select a Marque",
+        "marquePlaceHolderFilter": "Search by Marque",
+        "statutSousMarque": "Statut sous marque",
+        "statutSousMarquePlaceHolder": "Select a Statut sous marque",
+        "statutSousMarquePlaceHolderFilter": "Search by Statut sous marque",
+        "prixVente": "Prix vente",
+        "prixVenteMin": "Prix vente Min",
+        "prixVenteMax": "Prix vente Max",
+        "prixAchat": "Prix achat",
+        "prixAchatMin": "Prix achat Min",
+        "prixAchatMax": "Prix achat Max",
+        "remarque": "Remarque",
+        "sousMarque": "Sous marque",
+        "tabPan": "Sous marque",
+        "header": "Liste des sous marques",
+        "deleteSousMarqueConfirmationMessage": "Are you sure you want to delete sous marque",
+        "deleteSousMarquesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "venteItem":{
+        "stock": "Stock",
+        "stockPlaceHolder": "Select a Stock",
+        "stockPlaceHolderFilter": "Search by Stock",
+        "marque": "Marque",
+        "marquePlaceHolder": "Select a Marque",
+        "marquePlaceHolderFilter": "Search by Marque",
+        "sousMarque": "Sous marque",
+        "sousMarquePlaceHolder": "Select a Sous marque",
+        "sousMarquePlaceHolderFilter": "Search by Sous marque",
+        "quantite": "Quantite",
+        "quantiteMin": "Quantite Min",
+        "quantiteMax": "Quantite Max",
+        "prix": "Prix",
+        "prixMin": "Prix Min",
+        "prixMax": "Prix Max",
+        "remarque": "Remarque",
+        "vente": "Vente",
+        "ventePlaceHolder": "Select a Vente",
+        "ventePlaceHolderFilter": "Search by Vente",
+        "venteItem": "Vente item",
+        "tabPan": "Vente item",
+        "header": "Liste des vente items",
+        "deleteVenteItemConfirmationMessage": "Are you sure you want to delete vente item",
+        "deleteVenteItemsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+"appName": "GED"
+}
+
+

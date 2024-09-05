@@ -1,0 +1,40 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'transfertItem.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'transfertItem.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'transfertItem.sousMarque' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'transfertItem.sousMarque' | translate}}" autofocus  id="1" [ngModel]="item.sousMarque?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'transfertItem.quantite' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="2" [disabled]="true" placeholder="{{'transfertItem.quantite' | translate}}" [ngModel]="item.quantite"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'transfertItem.remarque' | translate}}</label>
+                        <textarea id="3" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'transfertItem.remarque' | translate}}"  [ngModel]="item.remarque"></textarea>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'transfertItem.transfert' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'transfertItem.transfert' | translate}}" autofocus  id="4" [ngModel]="item.transfert?.id">
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

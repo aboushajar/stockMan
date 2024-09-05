@@ -1,0 +1,65 @@
+        <p-dialog [(visible)]="createDialog" [style]="{width: '70vw'}" header="{{'depot.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+            <ng-template pTemplate="content" >
+                        <p-tabView>
+                            <p-tabPanel header="{{'depot.tabPan' | translate}}">
+                                <div class="grid">
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="1">{{'depot.code' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'depot.code' | translate}}" id="1" [(ngModel)]="item.code"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validDepotCode}"  />
+                                                    <small class='p-error' *ngIf='!validDepotCode'>Code is obligatory.</small>
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="2">{{'depot.libelle' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'depot.libelle' | translate}}" id="2" [(ngModel)]="item.libelle"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validDepotLibelle}"  />
+                                                    <small class='p-error' *ngIf='!validDepotLibelle'>Libelle is obligatory.</small>
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="3">{{'depot.style' | translate}}<span style="color: red;">*</span></label>
+                                                    <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'depot.style' | translate}}" id="3" [(ngModel)]="item.style"
+                                                            [ngClass]="{'ng-invalid ng-dirty' : !validDepotStyle}"  />
+                                                    <small class='p-error' *ngIf='!validDepotStyle'>Style is obligatory.</small>
+                                                </div>
+
+
+                                                <div class="field col-12 md:col-6">
+                                                    <label for="4">{{'depot.adresse' | translate}}</label>
+                                                    <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'depot.adresse' | translate}}"  [(ngModel)]="item.adresse"
+                                                             ></textarea>
+                                                    
+                                                </div>
+
+                                            <div class="field col-11 md:col-6">
+                                                <label for="5">{{'depot.pointVente' | translate}}</label>
+                                                <p-dropdown  appendTo="body"  [options]="pointVentes" [(ngModel)]="item.pointVente" id="5" [filter]="true" filterMatchMode="contains"
+                                                        [showClear]="true" optionLabel="libelle" placeholder="{{'depot.pointVente' | translate}}"  >
+                                                </p-dropdown>
+                                                
+                                            </div>
+
+                                </div>
+                            </p-tabPanel>
+
+                        </p-tabView>
+
+            </ng-template>
+
+            <ng-template pTemplate="footer" >
+                <div class="p-flexbox">
+
+                            <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="save()"></button>
+
+
+                            <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideCreateDialog()"></button>
+
+
+                </div>
+            </ng-template>
+
+    </p-dialog>

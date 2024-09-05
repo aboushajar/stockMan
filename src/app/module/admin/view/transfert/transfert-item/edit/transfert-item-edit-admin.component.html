@@ -1,0 +1,56 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'transfertItem.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'transfertItem.tabPan' | translate}}">
+                        <div class="grid">
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="1">{{'transfertItem.sousMarque' | translate}}<span style="color: red;">*</span></label>
+                                        <p-dropdown  appendTo="body"  [options]="sousMarques" [(ngModel)]="item.sousMarque" id="1" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'transfertItem.sousMarque' | translate}}" [ngClass]="{'ng-invalid ng-dirty' : !validTransfertItemSousMarque}"  >
+                                        </p-dropdown>
+                                        <small class='p-error' *ngIf='!validTransfertItemSousMarque'>SousMarque est obligatoire.</small>
+                                    </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'transfertItem.quantite' | translate}}<span style="color: red;">*</span></label>
+                                            <p-inputNumber class="mb-2 mr-2" id="2" placeholder="{{'transfertItem.quantite' | translate}}" [(ngModel)]="item.quantite" [ngClass]="{'ng-invalid ng-dirty' : !validTransfertItemQuantite}"  >
+                                            </p-inputNumber>
+                                            <small class='p-error' *ngIf='!validTransfertItemQuantite'>Quantite est obligatoire.</small>
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'transfertItem.remarque' | translate}}</label>
+                                            <textarea id="3" pInputTextarea rows="5" cols="30" placeholder="{{'transfertItem.remarque' | translate}}"  [(ngModel)]="item.remarque"
+                                                       ></textarea>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="4">{{'transfertItem.transfert' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="transferts" [(ngModel)]="item.transfert" id="4" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="id" placeholder="{{'transfertItem.transfert' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

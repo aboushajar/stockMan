@@ -1,0 +1,129 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'pointVente.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'pointVente.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'pointVente.libelle' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'pointVente.libelle' | translate}}" id="1" [(ngModel)]="item.libelle"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validPointVenteLibelle}"  />
+                                            <small class='p-error' *ngIf='!validPointVenteLibelle'>Libelle est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'pointVente.code' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'pointVente.code' | translate}}" id="2" [(ngModel)]="item.code"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validPointVenteCode}"  />
+                                            <small class='p-error' *ngIf='!validPointVenteCode'>Code est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'pointVente.style' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'pointVente.style' | translate}}" id="3" [(ngModel)]="item.style"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validPointVenteStyle}"  />
+                                            <small class='p-error' *ngIf='!validPointVenteStyle'>Style est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field align-inputswitch col-12  md:col-6">
+                                            <div  class="label-inputswitch">
+                                                <label for="4">{{'pointVente.partage' | translate}}</label>
+                                            </div>
+                                            <div class="input-switch">
+                                                <p-inputSwitch id="4"  [(ngModel)]="item.partage"
+                                                                >
+                                                </p-inputSwitch>
+                                                
+                                            </div>
+                                        </div>
+
+
+                        </div>
+                    </p-tabPanel>
+                            <p-tabPanel header="{{'pointVente.depots' | translate}}">
+                                        <div class="p-col">
+                                            <div class="grid">
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="1">Code<span style="color: red;">*</span></label>
+                                                                <input class="mb-2 mr-2" type="text" pInputText placeholder="Code"
+                                                                       id="1" [(ngModel)]="depotsElement.code" autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validDepotsCode}"  >
+                                                                <small class='p-error' *ngIf='!validDepotsCode'>Code est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="2">Libelle<span style="color: red;">*</span></label>
+                                                                <input class="mb-2 mr-2" type="text" pInputText placeholder="Libelle"
+                                                                       id="2" [(ngModel)]="depotsElement.libelle" autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validDepotsLibelle}"  >
+                                                                <small class='p-error' *ngIf='!validDepotsLibelle'>Libelle est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="3">Style<span style="color: red;">*</span></label>
+                                                                <input class="mb-2 mr-2" type="text" pInputText placeholder="Style"
+                                                                       id="3" [(ngModel)]="depotsElement.style" autofocus  [ngClass]="{'ng-invalid ng-dirty' : !validDepotsStyle}"  >
+                                                                <small class='p-error' *ngIf='!validDepotsStyle'>Style est obligatoire.</small>
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="4">{{'depot.adresse' | translate}}</label>
+                                                                <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'depot.adresse' | translate}}"  [(ngModel)]="item.adresse"
+                                                                           ></textarea>
+                                                                
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addDepots()"></button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="p-col">
+                                            <div class="card">
+                                                <p-table [value]="item.depots" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Code</th>
+                                                                        <th>Libelle</th>
+                                                                        <th>Style</th>
+                                                                        <th>Adresse</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                        <td>{{p.code}}</td>
+                                                                        <td>{{p.libelle}}</td>
+                                                                        <td>{{p.style}}</td>
+                                                                        <td>{{p.adresse}}</td>
+                                                            <td>
+                                                                <button (click)="deleteDepots(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editDepots(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+
+                                        </div>
+                            </p-tabPanel>
+
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

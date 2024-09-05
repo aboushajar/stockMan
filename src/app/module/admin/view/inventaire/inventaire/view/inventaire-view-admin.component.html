@@ -1,0 +1,64 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'inventaire.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'inventaire.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'inventaire.dateInventaite' | translate}}</label>
+                        <p-calendar id="1" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'inventaire.dateInventaite' | translate}}"  [ngModel]="item.dateInventaite" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'inventaire.depot' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'inventaire.depot' | translate}}" autofocus  id="2" [ngModel]="item.depot?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'inventaire.remarque' | translate}}</label>
+                        <textarea id="4" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{{'inventaire.remarque' | translate}}"  [ngModel]="item.remarque"></textarea>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+            <p-tabPanel header="{{'inventaire.inventaireItems' | translate}}">
+                <div class="grid">
+                    <div class="col">
+                        <div class="card">
+                            <p-table [value]="item.inventaireItems" [scrollable]="true" scrollHeight="200px">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Sous marque</th>
+                                        <th>Quantite anticipe</th>
+                                        <th>Quantite reelle</th>
+                                        <th>Decalage</th>
+                                        <th>Remarque</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-p>
+                                    <tr>
+                                        <td>{{p.sousMarque?.libelle}}</td>
+                                        <td>{{p.quantiteAnticipe}}</td>
+                                        <td>{{p.quantiteReelle}}</td>
+                                        <td>{{p.decalage}}</td>
+                                        <td>{{p.remarque}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

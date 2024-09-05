@@ -1,0 +1,72 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'reglementVente.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'reglementVente.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'reglementVente.dateReglement' | translate}}<span style="color: red;">*</span></label>
+                                            <p-calendar appendTo="body" id="1"  [showTime]="true" [showSeconds]="false" placeholder="{{'reglementVente.dateReglement' | translate}}"  [(ngModel)]="item.dateReglement"
+                                                        dateFormat="{{dateFormat}}" [ngClass]="{'ng-invalid ng-dirty' : !validReglementVenteDateReglement}"  >
+                                            </p-calendar>
+                                            <small class='p-error' *ngIf='!validReglementVenteDateReglement'>DateReglement est obligatoire.</small>
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="2">{{'reglementVente.modeReglement' | translate}}<span style="color: red;">*</span></label>
+                                        <p-dropdown  appendTo="body"  [options]="modeReglements" [(ngModel)]="item.modeReglement" id="2" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'reglementVente.modeReglement' | translate}}" [ngClass]="{'ng-invalid ng-dirty' : !validReglementVenteModeReglement}"  >
+                                        </p-dropdown>
+                                        <small class='p-error' *ngIf='!validReglementVenteModeReglement'>ModeReglement est obligatoire.</small>
+                                    </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'reglementVente.montant' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="3" placeholder="{{'reglementVente.montant' | translate}}" [(ngModel)]="item.montant"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'reglementVente.remarque' | translate}}</label>
+                                            <textarea id="4" pInputTextarea rows="5" cols="30" placeholder="{{'reglementVente.remarque' | translate}}"  [(ngModel)]="item.remarque"
+                                                       ></textarea>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="5">{{'reglementVente.vente' | translate}}<span style="color: red;">*</span></label>
+                                        <p-dropdown  appendTo="body"  [options]="ventes" [(ngModel)]="item.vente" id="5" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="code" placeholder="{{'reglementVente.vente' | translate}}" [ngClass]="{'ng-invalid ng-dirty' : !validReglementVenteVente}"  >
+                                        </p-dropdown>
+                                        <small class='p-error' *ngIf='!validReglementVenteVente'>Vente est obligatoire.</small>
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="6">{{'reglementVente.reglementVenteStatus' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="reglementVenteStatuss" [(ngModel)]="item.reglementVenteStatus" id="6" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="libelle" placeholder="{{'reglementVente.reglementVenteStatus' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

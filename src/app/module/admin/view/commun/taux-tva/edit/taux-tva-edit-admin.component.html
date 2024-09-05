@@ -1,0 +1,60 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'tauxTva.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'tauxTva.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'tauxTva.code' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'tauxTva.code' | translate}}" id="1" [(ngModel)]="item.code"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validTauxTvaCode}"  />
+                                            <small class='p-error' *ngIf='!validTauxTvaCode'>Code est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'tauxTva.libelle' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'tauxTva.libelle' | translate}}" id="2" [(ngModel)]="item.libelle"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validTauxTvaLibelle}"  />
+                                            <small class='p-error' *ngIf='!validTauxTvaLibelle'>Libelle est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'tauxTva.style' | translate}}<span style="color: red;">*</span></label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'tauxTva.style' | translate}}" id="3" [(ngModel)]="item.style"
+                                                   [ngClass]="{'ng-invalid ng-dirty' : !validTauxTvaStyle}"  />
+                                            <small class='p-error' *ngIf='!validTauxTvaStyle'>Style est obligatoire.</small>
+                                        </div>
+
+
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'tauxTva.valeur' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="4" placeholder="{{'tauxTva.valeur' | translate}}" [(ngModel)]="item.valeur"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

@@ -1,0 +1,44 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'stock.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'stock.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'stock.description' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'stock.description' | translate}}" autofocus  id="1" [ngModel]="item.description">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'stock.sousMarque' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'stock.sousMarque' | translate}}" autofocus  id="2" [ngModel]="item.sousMarque?.libelle">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'stock.quantiteEligibleVente' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="3" [disabled]="true" placeholder="{{'stock.quantiteEligibleVente' | translate}}" [ngModel]="item.quantiteEligibleVente"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'stock.quantiteNonEligibleVente' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="4" [disabled]="true" placeholder="{{'stock.quantiteNonEligibleVente' | translate}}" [ngModel]="item.quantiteNonEligibleVente"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'stock.depot' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'stock.depot' | translate}}" autofocus  id="5" [ngModel]="item.depot?.libelle">
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+
